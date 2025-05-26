@@ -8,6 +8,10 @@ using NeedAJobdotCom.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Railway port configuration
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -24,8 +28,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-
-
 // Add Entity Framework
 builder.Services.AddDbContext<JobBoardContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -37,10 +39,10 @@ builder.Services.AddHttpClient<AdzunaService>();
 builder.Services.AddScoped<IJobRepository, JobRepository>();
 builder.Services.AddScoped<IJobService, JobService>();
 builder.Services.AddScoped<IAdzunaService, AdzunaService>();
-builder.Services.AddScoped<IJobAggregator, JobAggregator>(); // Add this line
+builder.Services.AddScoped<IJobAggregator, JobAggregator>();
 
 var app = builder.Build();
-app.UseCors();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
