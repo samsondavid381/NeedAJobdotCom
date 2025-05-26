@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeedAJob.com - Entry Level Tech Jobs - The Best Job Site on the Web!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.3;
+        }
+
+        /* Header with classic styling */
+        .header {
+            background: linear-gradient(to bottom, #0066cc, #003399);
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            border: 3px outset #0066cc;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #000000;
+            margin-bottom: 8px;
+            font-family: Impact, Arial Black, sans-serif;
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            font-style: italic;
+            color: #ffff99;
+        }
+
+        /* Animated GIF placeholder */
+        .animated-gif {
+            display: inline-block;
+            background: #ff0000;
+            color: #ffffff;
+            padding: 4px 8px;
+            margin: 0 3px;
+            font-weight: bold;
+            animation: blink 1s infinite;
+            border: 2px solid #ffffff;
+            font-size: 12px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+
+        /* Navigation bar */
+        .navbar {
+            background: #cccccc;
+            border: 2px inset #cccccc;
+            padding: 8px;
+        }
+
+        .navbar table {
+            width: 100%;
+        }
+
+        .navbar td {
+            text-align: center;
+            padding: 4px;
+            border-right: 1px solid #999999;
+            font-weight: bold;
+        }
+
+        .navbar td:last-child {
+            border-right: none;
+        }
+
+        .navbar a {
+            color: #0000ee;
+            text-decoration: underline;
+            font-size: 13px;
+        }
+
+        .navbar a:visited {
+            color: #551a8b;
+        }
+
+        .navbar a:hover {
+            color: #ff0000;
+            text-decoration: none;
+        }
+
+        /* Stats counter */
+        .stats-counter {
+            background: #000000;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            padding: 8px;
+            text-align: center;
+            border: 3px inset #666666;
+            margin: 10px;
+            font-size: 14px;
+        }
+
+        .counter-digit {
+            background: #000000;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 2px 4px;
+            margin: 0 1px;
+            display: inline-block;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        /* Search form */
+        .search-form {
+            background: #ffffcc;
+            border: 3px inset #ffffcc;
+            padding: 12px;
+            margin: 10px;
+        }
+
+        .search-form h2 {
+            color: #cc0000;
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 12px;
+            text-decoration: underline;
+        }
+
+        .search-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .search-table td {
+            padding: 6px;
+            vertical-align: top;
+        }
+
+        .search-table label {
+            font-weight: bold;
+            color: #000080;
+            font-size: 14px;
+        }
+
+        .search-table input, .search-table select {
+            width: 100%;
+            padding: 4px;
+            border: 2px inset #cccccc;
+            background: #ffffff;
+            font-family: 'Times New Roman', serif;
+            font-size: 13px;
+        }
+
+        .search-btn {
+            background: linear-gradient(to bottom, #ff6600, #cc3300);
+            color: #ffffff;
+            border: 3px outset #ff6600;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            text-shadow: 1px 1px 2px #000000;
+        }
+
+        .search-btn:hover {
+            background: linear-gradient(to bottom, #ff8800, #ee4400);
+        }
+
+        .search-btn:active {
+            border: 3px inset #ff6600;
+        }
+
+        .refresh-btn {
+            background: linear-gradient(to bottom, #00cc00, #008800);
+            color: #ffffff;
+            border: 3px outset #00cc00;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+
+        .refresh-btn:hover {
+            background: linear-gradient(to bottom, #00ee00, #00aa00);
+        }
+
+        .refresh-btn:disabled {
+            background: #666666;
+            cursor: not-allowed;
+        }
+
+        /* Job results section */
+        .results-section {
+            background: #ffffff;
+            border: 2px solid #000000;
+            margin: 10px;
+        }
+
+        .results-header {
+            background: #000080;
+            color: #ffffff;
+            padding: 8px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .results-count {
+            background: #ffff00;
+            color: #000000;
+            padding: 4px 10px;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 2px solid #000000;
+            font-size: 14px;
+        }
+
+        /* Compact Job listings */
+        .job-list {
+            padding: 0;
+        }
+
+        .job-item {
+            border-bottom: 1px solid #cccccc;
+            padding: 12px;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            min-height: 80px;
+        }
+
+        .job-item:nth-child(even) {
+            background: #f8f8ff;
+        }
+
+        .job-item:hover {
+            background: #ffffcc;
+            cursor: pointer;
+        }
+
+        .job-main {
+            flex: 1;
+            padding-right: 15px;
+        }
+
+        .job-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #cc0000;
+            margin-bottom: 3px;
+            text-decoration: underline;
+        }
+
+        .job-company {
+            font-size: 14px;
+            color: #000080;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .job-meta {
+            font-size: 12px;
+            color: #666666;
+            margin-bottom: 4px;
+        }
+
+        .job-meta span {
+            margin-right: 15px;
+        }
+
+        .job-description {
+            font-size: 13px;
+            line-height: 1.4;
+            color: #333333;
+            margin: 4px 0;
+            max-height: 40px;
+            overflow: hidden;
+        }
+
+        .job-tags {
+            margin: 6px 0;
+        }
+
+        .job-tag {
+            background: #ff0000;
+            color: #ffffff;
+            padding: 2px 6px;
+            margin: 1px 2px;
+            display: inline-block;
+            font-size: 10px;
+            font-weight: bold;
+            border: 1px solid #cc0000;
+        }
+
+        .job-tag.entry {
+            background: #00cc00;
+            border-color: #008800;
+        }
+
+        .job-tag.remote {
+            background: #0066cc;
+            border-color: #004499;
+        }
+
+        .job-tag.salary {
+            background: #ffaa00;
+            color: #000000;
+            border-color: #cc8800;
+        }
+
+        .job-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+        }
+
+        .apply-btn {
+            background: linear-gradient(to bottom, #00aa00, #006600);
+            color: #ffffff;
+            padding: 8px 12px;
+            border: 2px outset #00aa00;
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            text-shadow: 1px 1px 2px #000000;
+            margin-bottom: 4px;
+        }
+
+        .apply-btn:hover {
+            background: linear-gradient(to bottom, #00cc00, #008800);
+        }
+
+        .apply-btn:active {
+            border: 2px inset #00aa00;
+        }
+
+        .job-posted {
+            font-size: 10px;
+            color: #999999;
+            text-align: center;
+        }
+
+        /* Cool 90s Loading Animation */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(45deg, #ffff99, #ffcc99, #ffff99, #ffcc99);
+            background-size: 400% 400%;
+            border: 3px dashed #ff0000;
+            margin: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            animation: loading-bg 2s ease-in-out infinite, pulse 1.5s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes loading-bg {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #ff0000;
+            border-top: 4px solid #ffff00;
+            border-radius: 50%;
+            animation: spin-90s 1s linear infinite;
+            margin: 10px;
+        }
+
+        @keyframes spin-90s {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-dots {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .loading-dots span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #ff0000;
+            border-radius: 50%;
+            margin: 0 2px;
+            animation: loading-bounce 1.4s ease-in-out infinite both;
+        }
+
+        .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+        .loading-dots span:nth-child(3) { animation-delay: 0s; }
+
+        @keyframes loading-bounce {
+            0%, 80%, 100% { 
+                transform: scale(0.8);
+                background: #ff0000;
+            }
+            40% { 
+                transform: scale(1.2);
+                background: #ffff00;
+            }
+        }
+
+        .loading-text {
+            font-family: 'Courier New', monospace;
+            color: #cc0000;
+            text-shadow: 2px 2px 4px #000000;
+            animation: text-glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes text-glow {
+            from { 
+                color: #cc0000;
+                text-shadow: 2px 2px 4px #000000;
+            }
+            to { 
+                color: #ff0000;
+                text-shadow: 0 0 10px #ff0000, 2px 2px 4px #000000;
+            }
+        }
+
+        .error {
+            background: #ff9999;
+            border: 3px solid #ff0000;
+            padding: 15px;
+            margin: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #cc0000;
+        }
+
+        .empty {
+            background: #ccffcc;
+            border: 3px solid #00aa00;
+            padding: 25px;
+            margin: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Pagination */
+        .pagination {
+            background: #cccccc;
+            border: 2px inset #cccccc;
+            padding: 10px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .pagination button {
+            background: linear-gradient(to bottom, #ffffff, #cccccc);
+            border: 2px outset #cccccc;
+            padding: 6px 10px;
+            margin: 0 2px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .pagination button:hover {
+            background: linear-gradient(to bottom, #ffffcc, #dddddd);
+        }
+
+        .pagination button:active, .pagination button.active {
+            border: 2px inset #cccccc;
+            background: linear-gradient(to bottom, #cccccc, #aaaaaa);
+        }
+
+        .pagination button:disabled {
+            background: #aaaaaa;
+            cursor: not-allowed;
+            color: #666666;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000080;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 15px;
+            border-top: 3px solid #ffffff;
+        }
+
+        .footer a {
+            color: #ffff00;
+        }
+
+        /* Marquee text */
+        .marquee {
+            background: #ff0000;
+            color: #ffffff;
+            padding: 8px;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Web ring style links */
+        .webring {
+            background: #ffffcc;
+            border: 2px solid #000000;
+            padding: 8px;
+            margin: 10px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .webring a {
+            color: #0000ee;
+            text-decoration: underline;
+            margin: 0 8px;
+        }
+
+        /* Visitor counter */
+        .visitor-counter {
+            background: #000000;
+            color: #ff0000;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            padding: 4px;
+            text-align: center;
+            border: 1px solid #ff0000;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .job-item {
+                flex-direction: column;
+            }
+            
+            .job-actions {
+                flex-direction: row;
+                margin-top: 8px;
+                min-width: 100%;
+                justify-content: space-between;
+            }
+            
+            .search-table tr,
+            .search-table td {
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>🌐 NeedAJob.com 🌐</h1>
+        <div class="subtitle">*** The BEST Entry Level Tech Jobs on the World Wide Web! ***</div>
+        <div style="margin-top: 8px;">
+            <span class="animated-gif">NEW!</span>
+            <span class="animated-gif">HOT!</span>
+            <span class="animated-gif">JOBS!</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <table>
+            <tr>
+                <td><a href="#home">🏠 Get A Job</a></td>
+                <td><a href="#about">ℹ️ About</a></td>
+                <td><a href="#contact">📧 Contact</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-text">
+            🔥 BREAKING: Over <span id="marqueeJobs">100</span> new tech jobs added this week! 🔥 
+            Perfect for college graduates and career changers! 🎓 
+            Apply now before positions fill up! ⚡
+        </div>
+    </div>
+
+    <!-- Stats Counter -->
+    <div class="stats-counter">
+        <strong>📊 LIVE JOB STATISTICS 📊</strong><br>
+        Total Jobs: <span class="counter-digit" id="totalJobsHundreds">0</span><span class="counter-digit" id="totalJobsTens">0</span><span class="counter-digit" id="totalJobs">0</span>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        Categories: <span class="counter-digit" id="totalCategories">0</span>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        Last Updated: <span id="lastUpdated">Now</span>
+    </div>
+
+    <!-- Search Form -->
+    <div class="search-form">
+        <h2>🔎 FIND YOUR DREAM JOB! 🔎</h2>
+        <table class="search-table">
+            <tr>
+                <td>
+                    <label for="search">🔤 Keywords:</label><br>
+                    <input type="text" id="search" placeholder="React, Python, JavaScript, etc.">
+                </td>
+                <td>
+                    <label for="category">📂 Category:</label><br>
+                    <select id="category">
+                        <option value="">All Categories</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="location">📍 Location:</label><br>
+                    <input type="text" id="location" placeholder="San Francisco, Remote, New York">
+                </td>
+                <td>
+                    <label for="type">⏰ Job Type:</label><br>
+                    <select id="type">
+                        <option value="">All Types</option>
+                        <option value="FullTime">Full Time</option>
+                        <option value="PartTime">Part Time</option>
+                        <option value="Contract">Contract</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center; padding-top: 12px;">
+                    <button class="search-btn" onclick="searchJobs()">🚀 SEARCH JOBS NOW! 🚀</button>
+                    <button class="refresh-btn" id="refreshBtn" onclick="refreshJobs()">🔄 Get Fresh Jobs</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results-section">
+        <div class="results-header">💼 JOB SEARCH RESULTS 💼</div>
+        <div class="results-count" id="resultsCount">Loading awesome jobs for you...</div>
+        
+        <div class="job-list" id="jobsContainer">
+            <div class="loading">🔄 Loading the best entry-level tech jobs on the internet... 🔄</div>
+        </div>
+
+        <div class="pagination" id="pagination" style="display: none;">
+            <!-- Pagination will be inserted here -->
+        </div>
+    </div>
+
+    <!-- Web Ring -->
+    <div class="webring">
+        <strong>🌐 Tech Job Web Ring 🌐</strong><br>
+        <a href="#">← Previous Site</a> |
+        <a href="#">Random Site</a> |
+        <a href="#">Next Site →</a> |
+        <a href="#">List All Sites</a>
+    </div>
+
+    <!-- Visitor Counter -->
+    <div class="visitor-counter">
+        You are visitor number: <span id="visitorCount">001337</span>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2025 NeedAJob.com - The Web's #1 Source for Entry Level Tech Jobs!</p>
+        <p>
+            <a href="#privacy">Privacy Policy</a> | 
+            <a href="#terms">Terms of Service</a> | 
+            <a href="#webmaster">Webmaster</a>
+        </p>
+        <p style="font-size: 11px; margin-top: 8px;">
+            Best viewed with Netscape Navigator 4.0+ or Internet Explorer 5.0+<br>
+            This site is Y2K compliant! 🎉
+        </p>
+    </div>
+
+    <script>
+        // Configuration - UPDATE THIS TO YOUR API PORT
+        const API_BASE = 'http://localhost:5129/api';
+        
+        // State
+        let currentPage = 1;
+        let currentFilters = {};
+        let totalPages = 1;
+        let isLoading = false;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadInitialData();
+            setupEventListeners();
+            updateVisitorCounter();
+        });
+
+        function setupEventListeners() {
+            document.getElementById('search').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchJobs();
+                }
+            });
+
+            // Add slight delay to dropdown changes to prevent rapid-fire requests
+            ['category', 'type'].forEach(id => {
+                document.getElementById(id).addEventListener('change', function() {
+                    // Add small delay to let DOM settle and prevent conflicts
+                    setTimeout(() => {
+                        if (!isLoading) {
+                            searchJobs();
+                        }
+                    }, 100);
+                });
+            });
+        }
+
+        async function loadInitialData() {
+            try {
+                await loadCategories();
+                await loadStats();
+                await searchJobs();
+            } catch (error) {
+                console.error('Error loading initial data:', error);
+                showError('ERROR 404: Cannot connect to job database! Please ensure your API server is running on the correct port.');
+            }
+        }
+
+        async function loadCategories() {
+            try {
+                const response = await fetch(`${API_BASE}/Jobs/categories`);
+                const categories = await response.json();
+                
+                const categorySelect = document.getElementById('category');
+                categorySelect.innerHTML = '<option value="">All Categories</option>';
+                
+                categories.forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category;
+                    option.textContent = formatCategoryName(category);
+                    categorySelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading categories:', error);
+            }
+        }
+
+        async function loadStats() {
+            try {
+                const response = await fetch(`${API_BASE}/Jobs/stats`);
+                const stats = await response.json();
+                
+                const totalJobs = stats.totalJobs || 0;
+                updateJobCounter(totalJobs);
+                document.getElementById('totalCategories').textContent = stats.jobsByCategory?.length || 0;
+                document.getElementById('marqueeJobs').textContent = totalJobs;
+                document.getElementById('lastUpdated').textContent = new Date().toLocaleTimeString();
+            } catch (error) {
+                console.error('Error loading stats:', error);
+                document.getElementById('totalJobs').textContent = '?';
+                document.getElementById('totalJobsTens').textContent = '?';
+                document.getElementById('totalJobsHundreds').textContent = '?';
+            }
+        }
+
+        function updateJobCounter(total) {
+            const totalStr = total.toString().padStart(3, '0');
+            document.getElementById('totalJobs').textContent = totalStr.charAt(2) || '0';
+            document.getElementById('totalJobsTens').textContent = totalStr.charAt(1) || '0';
+            document.getElementById('totalJobsHundreds').textContent = totalStr.charAt(0) || '0';
+        }
+
+        async function searchJobs(page = 1) {
+            if (isLoading) {
+                console.log('Search already in progress, skipping...');
+                return;
+            }
+            
+            try {
+                isLoading = true;
+                currentPage = page;
+                
+                // Show loading animation immediately
+                showLoading();
+                
+                // Get current filter values
+                const searchValue = document.getElementById('search').value.trim();
+                const categoryValue = document.getElementById('category').value;
+                const locationValue = document.getElementById('location').value.trim();
+                const typeValue = document.getElementById('type').value;
+                
+                currentFilters = {
+                    page: page,
+                    pageSize: 25
+                };
+
+                // Only add non-empty filters
+                if (searchValue) currentFilters.search = searchValue;
+                if (categoryValue) currentFilters.category = categoryValue;
+                if (locationValue) currentFilters.location = locationValue;
+                if (typeValue) currentFilters.type = typeValue;
+
+                const queryParams = new URLSearchParams(currentFilters).toString();
+                const url = `${API_BASE}/Jobs${queryParams ? '?' + queryParams : ''}`;
+                
+                console.log('Searching with filters:', currentFilters);
+                console.log('Fetching from URL:', url);
+                
+                // Add minimum loading time to show animation (at least 800ms)
+                const startTime = Date.now();
+                const minLoadingTime = 800;
+                
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('API Error Response:', errorText);
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                console.log('Search successful, got', data.totalCount, 'jobs');
+                
+                // Ensure loading animation shows for minimum time
+                const elapsedTime = Date.now() - startTime;
+                const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+                
+                if (remainingTime > 0) {
+                    await new Promise(resolve => setTimeout(resolve, remainingTime));
+                }
+                
+                displayJobs(data);
+                
+            } catch (error) {
+                console.error('Error searching jobs:', error);
+                showError(`💥 SEARCH ERROR 💥<br>
+                    Failed to load jobs from the server.<br>
+                    <strong>Details:</strong> ${error.message}<br>
+                    <strong>Troubleshooting:</strong><br>
+                    • Make sure your API is running (dotnet run)<br>
+                    • Check the browser console (F12) for more details<br>
+                    • Try refreshing the page and searching again`);
+            } finally {
+                isLoading = false;
+            }
+        }
+
+        async function refreshJobs() {
+            const refreshBtn = document.getElementById('refreshBtn');
+            const originalText = refreshBtn.textContent;
+            
+            refreshBtn.disabled = true;
+            refreshBtn.innerHTML = '⏳ Fetching Jobs...';
+            
+            try {
+                // Show cool loading animation during refresh too
+                showLoading();
+                
+                // Add minimum loading time for refresh animation
+                const startTime = Date.now();
+                const minLoadingTime = 1200; // Longer for refresh since it's fetching new data
+                
+                const response = await fetch(`${API_BASE}/Jobs/refresh?limit=50`, {
+                    method: 'POST'
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
+                const result = await response.json();
+                
+                // Ensure loading animation shows for minimum time
+                const elapsedTime = Date.now() - startTime;
+                const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+                
+                if (remainingTime > 0) {
+                    await new Promise(resolve => setTimeout(resolve, remainingTime));
+                }
+                
+                alert(`🎉 SUCCESS! 🎉\n\nFetched ${result.jobsAdded} new jobs from the internet!\n\nRefreshing your search results now...`);
+                
+                await searchJobs(currentPage);
+                await loadStats();
+                
+            } catch (error) {
+                console.error('Error refreshing jobs:', error);
+                alert('❌ ERROR: Failed to refresh jobs from the API. Please try again later.');
+            } finally {
+                refreshBtn.disabled = false;
+                refreshBtn.innerHTML = originalText;
+                isLoading = false;
+            }
+        }
+
+        function displayJobs(data) {
+            const container = document.getElementById('jobsContainer');
+            const resultsCount = document.getElementById('resultsCount');
+            const pagination = document.getElementById('pagination');
+
+            resultsCount.innerHTML = `📋 Found <strong>${data.totalCount}</strong> awesome entry-level tech jobs! 📋`;
+            
+            if (data.jobs.length === 0) {
+                container.innerHTML = `
+                    <div class="empty">
+                        <h3>🚫 NO JOBS FOUND 🚫</h3>
+                        <p>Try different search terms or click "Get Fresh Jobs" to fetch new positions from the internet!</p>
+                    </div>
+                `;
+                pagination.style.display = 'none';
+                return;
+            }
+
+            container.innerHTML = data.jobs.map(job => `
+                <div class="job-item" onclick="openJobUrl('${job.applyUrl || '#'}')">
+                    <div class="job-main">
+                        <div class="job-title">${escapeHtml(job.title)}</div>
+                        <div class="job-company">🏢 ${escapeHtml(job.company)}</div>
+                        <div class="job-meta">
+                            <span>📍 ${escapeHtml(job.location)}</span>
+                            <span>⏰ ${job.type}</span>
+                            <span>📅 ${job.postedAgo}</span>
+                            ${job.salary ? `<span>💰 ${escapeHtml(job.salary)}</span>` : ''}
+                        </div>
+                        <div class="job-description">${escapeHtml(job.description)}</div>
+                        <div class="job-tags">
+                            ${job.tags.slice(0, 4).map(tag => `
+                                <span class="job-tag ${getTagClass(tag)}">${escapeHtml(tag)}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="job-actions">
+                        ${job.applyUrl ? `
+                            <a href="${job.applyUrl}" target="_blank" class="apply-btn" onclick="event.stopPropagation()">
+                                🚀 APPLY NOW!
+                            </a>
+                        ` : '<span style="color: #666; font-size: 11px;">No direct link</span>'}
+                        <div class="job-posted">${job.postedAgo} • ${job.source}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Update pagination
+            totalPages = data.totalPages;
+            if (totalPages > 1) {
+                updatePagination();
+                pagination.style.display = 'block';
+            } else {
+                pagination.style.display = 'none';
+            }
+        }
+
+        function updatePagination() {
+            const pagination = document.getElementById('pagination');
+            let paginationHTML = '<strong>📄 Pages:</strong> ';
+
+            // Previous button
+            paginationHTML += `
+                <button ${currentPage <= 1 ? 'disabled' : ''} onclick="searchJobs(${currentPage - 1})">
+                    ⬅️ Prev
+                </button>
+            `;
+
+            // Page numbers
+            const startPage = Math.max(1, currentPage - 2);
+            const endPage = Math.min(totalPages, currentPage + 2);
+
+            if (startPage > 1) {
+                paginationHTML += `<button onclick="searchJobs(1)">1</button>`;
+                if (startPage > 2) {
+                    paginationHTML += `<span>...</span>`;
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                paginationHTML += `
+                    <button class="${i === currentPage ? 'active' : ''}" onclick="searchJobs(${i})">
+                        ${i}
+                    </button>
+                `;
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    paginationHTML += `<span>...</span>`;
+                }
+                paginationHTML += `<button onclick="searchJobs(${totalPages})">${totalPages}</button>`;
+            }
+
+            // Next button
+            paginationHTML += `
+                <button ${currentPage >= totalPages ? 'disabled' : ''} onclick="searchJobs(${currentPage + 1})">
+                    Next ➡️
+                </button>
+            `;
+
+            pagination.innerHTML = paginationHTML;
+        }
+
+        function showLoading() {
+            document.getElementById('jobsContainer').innerHTML = `
+                <div class="loading">
+                    <div class="loading-text">🔄 SCANNING THE WORLD WIDE WEB 🔄</div>
+                    <div class="loading-spinner"></div>
+                    <div class="loading-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 12px; color: #666;">
+                        Please wait while we search job databases...<br>
+                        Checking Indeed • Monster • LinkedIn • CareerBuilder
+                    </div>
+                </div>
+            `;
+            document.getElementById('resultsCount').innerHTML = '🔍 Searching...';
+        }
+
+        function showError(message) {
+            document.getElementById('jobsContainer').innerHTML = `
+                <div class="error">
+                    <h3>💥 SYSTEM ERROR 💥</h3>
+                    <p>${message}</p>
+                    <p><strong>Troubleshooting:</strong></p>
+                    <ul style="text-align: left; margin: 10px 0;">
+                        <li>Check that your API is running (dotnet run)</li>
+                        <li>Verify the API port matches the frontend URL</li>
+                        <li>Make sure CORS is enabled in your API</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        function openJobUrl(url) {
+            if (url && url !== '#') {
+                window.open(url, '_blank');
+            }
+        }
+
+        function getTagClass(tag) {
+            const tagLower = tag.toLowerCase();
+            if (tagLower.includes('entry') || tagLower.includes('junior')) return 'entry';
+            if (tagLower.includes('remote')) return 'remote';
+            if (tagLower.includes('$') || tagLower.includes('salary')) return 'salary';
+            return '';
+        }
+
+        function formatCategoryName(category) {
+            return category
+                .split('-')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function updateVisitorCounter() {
+            const counter = document.getElementById('visitorCount');
+            let count = parseInt(localStorage.getItem('visitorCount') || '1337');
+            count += Math.floor(Math.random() * 5) + 1;
+            localStorage.setItem('visitorCount', count.toString());
+            counter.textContent = count.toString().padStart(6, '0');
+        }
+
+        // Auto-refresh visitor counter every 30 seconds
+        setInterval(updateVisitorCounter, 30000);
+    </script>
+</body>
+</html>

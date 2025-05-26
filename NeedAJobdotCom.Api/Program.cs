@@ -24,6 +24,8 @@ builder.Services.AddCors(options =>
     });
 });
 
+
+
 // Add Entity Framework
 builder.Services.AddDbContext<JobBoardContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -38,7 +40,7 @@ builder.Services.AddScoped<IAdzunaService, AdzunaService>();
 builder.Services.AddScoped<IJobAggregator, JobAggregator>(); // Add this line
 
 var app = builder.Build();
-
+app.UseCors();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

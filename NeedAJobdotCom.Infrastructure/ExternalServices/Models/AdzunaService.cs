@@ -84,10 +84,10 @@ namespace NeedAJobdotCom.Infrastructure.ExternalServices
     }
 }
 
-private static string BuildEntryLevelQuery(string baseQuery)
-{
-            // Less restrictive - just add a few entry-level terms but don't require them
+        private static string BuildEntryLevelQuery(string baseQuery)
+        {
             return baseQuery;
+            
 }
 
 private static bool IsEntryLevelJob(AdzunaJob job)
@@ -95,17 +95,33 @@ private static bool IsEntryLevelJob(AdzunaJob job)
     var title = job.Title.ToLower();
     var description = job.Description.ToLower();
     
-    var excludeKeywords = new[] { "senior", "lead", "manager", "director" };
-    var includeKeywords = new[] { "junior", "entry", "graduate", "associate" };
+    // Hard exclude senior positions
+    var seniorKeywords = new[]
+    {
+        "senior", "sr.", "sr ", "lead", "principal", "staff", 
+        "manager", "director", "vp", "vice president", "chief", 
+        "head of", "architect", "expert", "specialist",
+        "5+ years", "6+ years", "7+ years", "8+ years", "9+ years", "10+ years",
+        "experienced", "seasoned", "advanced"
+    };
     
-    var hasExclude = excludeKeywords.Any(k => title.Contains(k));
-    var hasInclude = includeKeywords.Any(k => title.Contains(k) || description.Contains(k));
+    // If title or description has senior keywords, exclude
+    var isSenior = seniorKeywords.Any(keyword => 
+        title.Contains(keyword) || description.Contains(keyword));
     
-    // Log what we're doing (remove this after testing)
-    Console.WriteLine($"Job: {title} | Exclude: {hasExclude} | Include: {hasInclude} | Result: {!hasExclude || hasInclude}");
+    if (isSenior)
+    {
+        return false; // Definitely exclude
+    }
     
-    // Exclude only if has exclude keywords AND no include keywords
-    return !hasExclude || hasInclude;
+    // Also check for recent posting (last 30 days)
+    var daysSincePosted = (DateTime.UtcNow - job.Created).TotalDays;
+    if (daysSincePosted > 30)
+    {
+        return false; // Exclude old jobs
+    }
+    
+    return true; // Include if not senior and not old
 }
         
         private static ExternalJobData MapToExternalJobData(AdzunaJob job)

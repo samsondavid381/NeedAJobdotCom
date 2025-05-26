@@ -11,14 +11,14 @@ namespace NeedAJobdotCom.Api.Controllers
         private readonly IJobService _jobService;
         private readonly IJobAggregator _jobAggregator;
         private readonly ILogger<JobsController> _logger;
-        
+
         public JobsController(IJobService jobService, IJobAggregator jobAggregator, ILogger<JobsController> logger)
         {
             _jobService = jobService;
             _jobAggregator = jobAggregator;
             _logger = logger;
         }
-        
+
         /// <summary>
         /// Get jobs with filtering and pagination
         /// </summary>
@@ -36,7 +36,7 @@ namespace NeedAJobdotCom.Api.Controllers
                 return StatusCode(500, new { Error = "Failed to retrieve jobs" });
             }
         }
-        
+
         /// <summary>
         /// Get a specific job by ID
         /// </summary>
@@ -50,7 +50,7 @@ namespace NeedAJobdotCom.Api.Controllers
                 {
                     return NotFound(new { Error = $"Job with ID {id} not found" });
                 }
-                
+
                 return Ok(job);
             }
             catch (Exception ex)
@@ -59,7 +59,7 @@ namespace NeedAJobdotCom.Api.Controllers
                 return StatusCode(500, new { Error = "Failed to retrieve job" });
             }
         }
-        
+
         /// <summary>
         /// Get available job categories
         /// </summary>
@@ -77,7 +77,7 @@ namespace NeedAJobdotCom.Api.Controllers
                 return StatusCode(500, new { Error = "Failed to retrieve categories" });
             }
         }
-        
+
         /// <summary>
         /// Get available job locations
         /// </summary>
@@ -95,7 +95,7 @@ namespace NeedAJobdotCom.Api.Controllers
                 return StatusCode(500, new { Error = "Failed to retrieve locations" });
             }
         }
-        
+
         /// <summary>
         /// Manually refresh jobs from external APIs
         /// </summary>
@@ -105,7 +105,7 @@ namespace NeedAJobdotCom.Api.Controllers
             try
             {
                 int jobsAdded;
-                
+
                 if (string.IsNullOrEmpty(category))
                 {
                     _logger.LogInformation("Starting refresh of all job categories");
@@ -116,9 +116,10 @@ namespace NeedAJobdotCom.Api.Controllers
                     _logger.LogInformation("Starting refresh of category: {Category}", category);
                     jobsAdded = await _jobAggregator.RefreshCategoryAsync(category, limit);
                 }
-                
-                return Ok(new { 
-                    Message = $"Successfully refreshed jobs", 
+
+                return Ok(new
+                {
+                    Message = $"Successfully refreshed jobs",
                     JobsAdded = jobsAdded,
                     Category = category ?? "all"
                 });
@@ -129,7 +130,7 @@ namespace NeedAJobdotCom.Api.Controllers
                 return StatusCode(500, new { Error = "Failed to refresh jobs" });
             }
         }
-        
+
         /// <summary>
         /// Get job statistics
         /// </summary>
@@ -139,7 +140,7 @@ namespace NeedAJobdotCom.Api.Controllers
             try
             {
                 var allJobs = await _jobService.GetJobsAsync(new JobFilterDto { PageSize = int.MaxValue });
-                
+
                 var stats = new
                 {
                     TotalJobs = allJobs.TotalCount,
@@ -156,7 +157,7 @@ namespace NeedAJobdotCom.Api.Controllers
                     RemoteJobs = allJobs.Jobs.Count(j => j.IsRemote),
                     RecentJobs = allJobs.Jobs.Count(j => j.PostedDate > DateTime.UtcNow.AddDays(-7))
                 };
-                
+
                 return Ok(stats);
             }
             catch (Exception ex)
@@ -165,5 +166,7 @@ namespace NeedAJobdotCom.Api.Controllers
                 return StatusCode(500, new { Error = "Failed to retrieve job statistics" });
             }
         }
+
     }
+    
 }

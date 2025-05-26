@@ -180,71 +180,47 @@ namespace NeedAJobdotCom.Infrastructure.Services
         }
         
         private static List<string> GenerateTags(ExternalJobData externalJob, string category)
-        {
-            var tags = new List<string>();
-            
-            // Add category-based tags
-            switch (category)
-            {
-                case "software-engineer":
-                    tags.Add("Software Engineer");
-                    if (externalJob.Title.ToLower().Contains("full stack"))
-                        tags.Add("Full Stack");
-                    if (externalJob.Title.ToLower().Contains("frontend") || externalJob.Title.ToLower().Contains("front-end"))
-                        tags.Add("Frontend");
-                    if (externalJob.Title.ToLower().Contains("backend") || externalJob.Title.ToLower().Contains("back-end"))
-                        tags.Add("Backend");
-                    break;
-                case "data":
-                    tags.Add("Data Science");
-                    tags.Add("Analytics");
-                    if (externalJob.Title.ToLower().Contains("scientist"))
-                        tags.Add("Data Scientist");
-                    if (externalJob.Title.ToLower().Contains("analyst"))
-                        tags.Add("Data Analyst");
-                    break;
-                case "design":
-                    tags.Add("Design");
-                    if (externalJob.Title.ToLower().Contains("ux"))
-                        tags.Add("UX");
-                    if (externalJob.Title.ToLower().Contains("ui"))
-                        tags.Add("UI");
-                    break;
-                case "cybersecurity":
-                    tags.Add("Cybersecurity");
-                    tags.Add("Security");
-                    break;
-                case "ai-ml":
-                    tags.Add("AI/ML");
-                    tags.Add("Machine Learning");
-                    break;
-                case "product":
-                    tags.Add("Product Management");
-                    tags.Add("Strategy");
-                    break;
-                case "devops":
-                    tags.Add("DevOps");
-                    tags.Add("Cloud");
-                    break;
-                case "qa":
-                    tags.Add("QA");
-                    tags.Add("Testing");
-                    break;
-            }
-            
-            // Add location-based tags
-            if (externalJob.IsRemote)
-                tags.Add("Remote");
-            else
-                tags.Add("Office");
-            
-            // Add experience level tag
-            tags.Add("Entry Level");
-            
-            // Add job type tag
-            tags.Add(externalJob.Type);
-            
-            return tags;
-        }
+{
+    var tags = new List<string>();
+    var title = externalJob.Title.ToLower();
+    var description = externalJob.Description.ToLower();
+    
+    // Category tags
+    switch (category)
+    {
+        case "software-engineer":
+            tags.Add("Software Engineer");
+            if (title.Contains("full stack")) tags.Add("Full Stack");
+            if (title.Contains("frontend") || title.Contains("front-end")) tags.Add("Frontend");
+            if (title.Contains("backend") || title.Contains("back-end")) tags.Add("Backend");
+            break;
+        case "data":
+            tags.Add("Data Science");
+            break;
+        // ... other categories
+    }
+    
+    // Experience level (smart detection)
+    var entryKeywords = new[] { "junior", "entry", "graduate", "new grad", "associate", "intern", "trainee" };
+    var midKeywords = new[] { "mid", "intermediate", "2-3 years", "3-5 years" };
+    var seniorKeywords = new[] { "senior", "lead", "principal", "5+ years", "experienced" };
+    
+    if (entryKeywords.Any(k => title.Contains(k) || description.Contains(k)))
+        tags.Add("Entry Level");
+    else if (midKeywords.Any(k => title.Contains(k) || description.Contains(k)))
+        tags.Add("Mid Level");
+    else if (seniorKeywords.Any(k => title.Contains(k) || description.Contains(k)))
+        tags.Add("Senior Level");
+    else
+        tags.Add("Entry Level"); // Default assumption
+    
+    // Location tags
+    if (externalJob.IsRemote)
+        tags.Add("Remote");
+    else
+        tags.Add("On-site");
+    
+    return tags;
+}
     }
 }
