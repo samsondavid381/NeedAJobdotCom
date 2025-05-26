@@ -1,0 +1,11 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "dotnet run --project NeedAJobdotCom.Api --urls http://0.0.0.0:$PORT"
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+
+[environments.production.variables]
+ASPNETCORE_ENVIRONMENT = "Production"
