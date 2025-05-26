@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "cNRAQvGmWgcNiNZDkz8Ffv4MQhacZST0SBCGDCGhBtE=",
+  "Source": "NeedAJobdotCom.Api",
+  "BasePath": "_content/NeedAJobdotCom.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
