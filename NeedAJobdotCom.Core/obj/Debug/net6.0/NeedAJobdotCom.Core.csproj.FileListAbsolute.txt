@@ -1,0 +1,12 @@
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\bin\Debug\net6.0\NeedAJobdotCom.Core.deps.json
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\bin\Debug\net6.0\NeedAJobdotCom.Core.dll
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\bin\Debug\net6.0\NeedAJobdotCom.Core.pdb
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net6.0\NeedAJobdotCom.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net6.0\NeedAJobdotCom.Core.AssemblyInfoInputs.cache
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net6.0\NeedAJobdotCom.Core.AssemblyInfo.cs
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net6.0\NeedAJobdotCom.Core.csproj.CoreCompileInputs.cache
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net6.0\NeedAJobdotCom.Core.sourcelink.json
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net6.0\NeedAJobdotCom.Core.dll
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net6.0\refint\NeedAJobdotCom.Core.dll
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net6.0\NeedAJobdotCom.Core.pdb
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net6.0\ref\NeedAJobdotCom.Core.dll
