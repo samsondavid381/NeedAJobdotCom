@@ -9,3 +9,4 @@ D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net8.0\NeedAJ
 D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net8.0\refint\NeedAJobdotCom.Core.dll
 D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net8.0\NeedAJobdotCom.Core.pdb
 D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net8.0\ref\NeedAJobdotCom.Core.dll
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Core\obj\Debug\net8.0\NeedAJobdotCom.Core.sourcelink.json

@@ -13,3 +13,4 @@ D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Infrastructure\obj\Debug\net
 D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Infrastructure\obj\Debug\net8.0\refint\NeedAJobdotCom.Infrastructure.dll
 D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Infrastructure\obj\Debug\net8.0\NeedAJobdotCom.Infrastructure.pdb
 D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Infrastructure\obj\Debug\net8.0\ref\NeedAJobdotCom.Infrastructure.dll
+D:\development\GitHub\NeedAJobdotCom\NeedAJobdotCom.Infrastructure\obj\Debug\net8.0\NeedAJobdotCom.Infrastructure.sourcelink.json
