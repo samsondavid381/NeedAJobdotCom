@@ -8,16 +8,16 @@ using NeedAJobdotCom.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Railway port configuration
+// Render.com port configuration
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
 
-// Add services to the container.
+// Add services
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Add CORS
+// CORS
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
@@ -28,14 +28,14 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Add Entity Framework
+// Database
 builder.Services.AddDbContext<JobBoardContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Add HTTP Client for external APIs
+// External services
 builder.Services.AddHttpClient<AdzunaService>();
 
-// Add Repository and Services
+// DI
 builder.Services.AddScoped<IJobRepository, JobRepository>();
 builder.Services.AddScoped<IJobService, JobService>();
 builder.Services.AddScoped<IAdzunaService, AdzunaService>();
@@ -43,7 +43,7 @@ builder.Services.AddScoped<IJobAggregator, JobAggregator>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

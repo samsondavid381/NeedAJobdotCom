@@ -1,5 +1,3 @@
-# Create .gitignore
-@"
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -38,8 +36,3 @@ appsettings.Production.json
 
 # Build artifacts
 .dist/
-.nixpacks/
-
-# Railway files
-railway.toml
-"@ | Out-File -FilePath .gitignore -Encoding UTF8
